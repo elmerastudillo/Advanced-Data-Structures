@@ -122,10 +122,11 @@ class BinaryMinHeap(object):
         # Get the item's value
         item = self.items[index]
         # Determine which child item to compare this node's item to
+        # Smallet number has to keep moving up
         child_index = 0
         if right_index > self.size() - 1:
             child_index = left_index
-        elif self.items[left_index] <= self.items[right_index]:
+        elif self.items[right_index] >= self.items[left_index]:
             child_index = left_index
         else:
             child_index = right_index
