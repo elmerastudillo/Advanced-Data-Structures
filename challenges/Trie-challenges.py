@@ -64,10 +64,6 @@ def binary_search_recursive(array, item, left=None, right=None):
     # If item is equal the middle index of the array return index
     if middle_item[:item_len] == item:
         return middle
-    # elif left_item[:item_len] == item:
-    #     return left
-    # elif right_item[:item_len] == item:
-    #     return right
 
     # If middle item is less than item the move the left index plus one
     if middle_item[:item_len] < item:
