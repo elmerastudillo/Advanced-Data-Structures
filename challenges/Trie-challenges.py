@@ -12,7 +12,8 @@ def get_words(file):
 
 
 def autocomplete(prefix, lst):
-
+    """return all words that start with prefix
+    Ex: autocomplete('appl') => ['apple', 'application', ...]"""
     prefix_length = len(prefix)
     complete_words = []
     index = binary_search_recursive(lst, prefix)
