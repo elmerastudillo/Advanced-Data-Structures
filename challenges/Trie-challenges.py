@@ -22,8 +22,8 @@ def autocomplete(prefix, lst):
     left = index - 1
     right = index + 1
     left_word = lst[left]
-    if right < len(lst) - 1:
-        right_word = lst[right]
+    # if right < len(lst) - 1:
+    right_word = lst[right]
     if prefix == "":
         return complete_words
     if lst[index].startswith(prefix):
@@ -31,17 +31,18 @@ def autocomplete(prefix, lst):
     while left_word.startswith(prefix) or right_word.startswith(prefix):
         if left_word.startswith(prefix):
             complete_words.append(left_word)
-            left += 1
+            left -= 1
             left_word = lst[left]
 
         if right_word.startswith(prefix):
             complete_words.append(right_word)
-            right -= 1
+            right += 1
             if right < len(lst) - 1:
                 right_word = lst[right]
 
         if left > right:
             return complete_words
+    print(complete_words)
     return complete_words
 
 
@@ -85,7 +86,7 @@ def benchmark(all_prefixes, all_words):
     t1 = time.time()
     for i in all_prefixes:
         # pdb.set_trace()
-        print("This is the prefix: {}".format(i))
+        # print("This is the prefix: {}".format(i))
         autocomplete(i, all_words)
     t2 = time.time()
     benchmark_time = t2 - t1
